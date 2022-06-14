@@ -5,30 +5,25 @@ import java.util.Scanner;
 
 public class JUnitTestingProgram {
     public static void main(String[] args) {
-       monthlyPayment();
+       squareRootUsingNewtonsMethod(12,1);
     }
-    static double monthlyPayment() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter loan amount: ");
-        int loanAmount = scanner.nextInt();
 
-        System.out.print("Enter loan term (in years): ");
-        int termInYears = scanner.nextInt();
+    static void squareRootUsingNewtonsMethod(double n, double l) {
+        double x = n;
 
-        System.out.print("Enter interest rate: ");
-        double interestRate = scanner.nextDouble();
-        // Convert interest rate into a decimal
-        interestRate /= 100.0;
+        // The closed guess will be stored in the root
+        double root;
 
-        // Monthly interest rate is the yearly rate divided by 12
-        double monthlyRate = interestRate / 12.0;
+        // To count the number of iterations
+        int count = 0;
 
-        // The length of the term in months is the number of years times 12
-        int termInMonths = termInYears * 12;
-        double monthlyPayment =
-                (loanAmount * monthlyRate) /
-                        (1 - Math.pow(1 + monthlyRate, -termInMonths));
-        System.out.println(monthlyPayment);
-        return monthlyPayment;
+        while (true) {
+            count++;
+            root = 0.5 * (x + (n / x));
+            if (Math.abs(root - x) < l)
+                break;
+            x = root;
+        }
+        System.out.println(root);
     }
 }
