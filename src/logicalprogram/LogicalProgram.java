@@ -6,24 +6,20 @@ import java.util.Scanner;
 
 public class LogicalProgram {
     public static void main(String[] args) {
-        primeNumber();
+        reverseNumber();
     }
 
-    static void primeNumber() {
+    static void reverseNumber() {
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
-        boolean flag = false;
-        for (int i = 2; i <= num / 2; ++i) {
-            // condition for non prime number
-            if (num % i == 0) {
-                flag = true;
-                break;
-            }
-        }
+        int reversed = 0;
+        System.out.println("Original Number: " + num);
 
-        if (!flag)
-            System.out.println(num + " is a prime number.");
-        else
-            System.out.println(num + " is not a prime number.");
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        System.out.println("Reversed Number: " + reversed);
     }
 }
