@@ -6,20 +6,19 @@ import java.util.Scanner;
 
 public class LogicalProgram {
     public static void main(String[] args) {
-        reverseNumber();
+        createCupon(4);
     }
 
-    static void reverseNumber() {
-        Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
-        int reversed = 0;
-        System.out.println("Original Number: " + num);
-
-        while (num != 0) {
-            int digit = num % 10;
-            reversed = reversed * 10 + digit;
-            num /= 10;
+    static String createCupon(int codeLength) {
+        char[] chars = "abcdefghijklmnopqrstuvwxyz1234567890".toCharArray();
+        StringBuilder sb = new StringBuilder();
+        Random random = new SecureRandom();
+        for (int i = 0; i < codeLength; i++) {
+            char c = chars[random.nextInt(chars.length)];
+            sb.append(c);
         }
-        System.out.println("Reversed Number: " + reversed);
+        String output = sb.toString();
+        System.out.println(output);
+        return output;
     }
 }
