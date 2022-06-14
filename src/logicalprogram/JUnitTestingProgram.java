@@ -1,25 +1,20 @@
 package logicalprogram;
 
+import java.util.GregorianCalendar;
+
 public class JUnitTestingProgram {
     public static void main(String[] args) {
-        currencyCodes(4515);
+       dayOfAWeek();
     }
-    static void currencyCodes(int inputAmount) {
-        int[] notes = new int[]{1000, 500, 200, 100, 50, 10, 5, 2, 1};
-        int[] noteCounter = new int[9];
-        System.out.println("Enter the amount in vending machine: ");
+    static void dayOfAWeek() {
+        int y = 0;
+        int m = 0;
+        int d = 0;
+        GregorianCalendar calendar = new GregorianCalendar(y, m, d);
 
-        for (int i = 0; i < 9; i++) {
-            if (inputAmount >= notes[i]) {
-                noteCounter[i] = inputAmount / notes[i];
-                inputAmount = inputAmount - noteCounter[i] * notes[i];
-            }
-        }
-        System.out.println("The number of notes out ->");
-        for (int i = 0; i < 9; i++) {
-            if (noteCounter[i] != 0) {
-                System.out.println(notes[i] + " : " + noteCounter[i]);
-            }
-        }
+        System.out.println("Day of Week = " + calendar.get(GregorianCalendar.DAY_OF_WEEK));
+        System.out.println("Date = " + calendar.get(GregorianCalendar.DATE));
+        System.out.println("Month = " + calendar.get(GregorianCalendar.MONTH));
+        System.out.println("Year = " + calendar.get(GregorianCalendar.YEAR));
     }
 }
