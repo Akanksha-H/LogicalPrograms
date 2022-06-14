@@ -1,20 +1,27 @@
 package logicalprogram;
 
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 public class JUnitTestingProgram {
     public static void main(String[] args) {
-       dayOfAWeek();
+       temperatureConvertor();
     }
-    static void dayOfAWeek() {
-        int y = 0;
-        int m = 0;
-        int d = 0;
-        GregorianCalendar calendar = new GregorianCalendar(y, m, d);
-
-        System.out.println("Day of Week = " + calendar.get(GregorianCalendar.DAY_OF_WEEK));
-        System.out.println("Date = " + calendar.get(GregorianCalendar.DATE));
-        System.out.println("Month = " + calendar.get(GregorianCalendar.MONTH));
-        System.out.println("Year = " + calendar.get(GregorianCalendar.YEAR));
+    static void temperatureConvertor(double value) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Celcius to Fahrenheit\n" +
+                "2. Fahrenheit to Celcius\n");
+        System.out.println("\nEnter Choice: ");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                value = (value * 9 / 5) + 32;
+                System.out.println("Celcius to Fahrenheit: " + value);
+                break;
+            case 2:
+                value = (value - 32) * 5 / 9;
+                System.out.println("Fahrenheit to Celcius: " + value);
+                break;
+        }
     }
 }
