@@ -6,19 +6,26 @@ import java.util.Scanner;
 
 public class LogicalProgram {
     public static void main(String[] args) {
-        createCupon(4);
+        stopWatch();
     }
 
-    static String createCupon(int codeLength) {
-        char[] chars = "abcdefghijklmnopqrstuvwxyz1234567890".toCharArray();
-        StringBuilder sb = new StringBuilder();
-        Random random = new SecureRandom();
-        for (int i = 0; i < codeLength; i++) {
-            char c = chars[random.nextInt(chars.length)];
-            sb.append(c);
+    static void stopWatch() {
+        long startTime = 0;
+        long stopTime = 0;
+        int run = 1;
+        double running = Math.floor(Math.random() * 10) % 2;
+
+        if (running == run) {
+            startTime = System.currentTimeMillis();
+        } else stopTime = System.currentTimeMillis();
+
+        long elapsed;
+        if (running == run) {
+            elapsed = (System.currentTimeMillis() - startTime);
+        } else {
+            elapsed = (stopTime - startTime);
         }
-        String output = sb.toString();
-        System.out.println(output);
-        return output;
+
+        System.out.println("elapsed time in milliseconds: " + elapsed);
     }
 }
