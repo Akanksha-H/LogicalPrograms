@@ -6,24 +6,24 @@ import java.util.Scanner;
 
 public class LogicalProgram {
     public static void main(String[] args) {
-        perfectNumber();
+        primeNumber();
     }
 
-    static void perfectNumber() {
+    static void primeNumber() {
         Scanner scanner = new Scanner(System.in);
-        int i, number, sum = 0;
-        System.out.println("\n Please Enter any Number: ");
-        number = scanner.nextInt();
-
-        for (i = 1; i < number; i++) {
-            if (number % i == 0) {
-                sum = sum + i;
+        int num = scanner.nextInt();
+        boolean flag = false;
+        for (int i = 2; i <= num / 2; ++i) {
+            // condition for non prime number
+            if (num % i == 0) {
+                flag = true;
+                break;
             }
         }
-        if (sum == number) {
-            System.out.format("Given is a Perfect Number", number);
-        } else {
-            System.out.format("Given is NOT a Perfect Number", number);
-        }
+
+        if (!flag)
+            System.out.println(num + " is a prime number.");
+        else
+            System.out.println(num + " is not a prime number.");
     }
 }
