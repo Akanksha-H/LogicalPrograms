@@ -6,18 +6,24 @@ import java.util.Scanner;
 
 public class LogicalProgram {
     public static void main(String[] args) {
-        fibonacciSeries();
+        perfectNumber();
     }
 
-    static void fibonacciSeries() {
-        int n = 10, firstTerm = 0, secondTerm = 1;
-        System.out.println("Fibonacci Series computes till " + n + " terms:");
+    static void perfectNumber() {
+        Scanner scanner = new Scanner(System.in);
+        int i, number, sum = 0;
+        System.out.println("\n Please Enter any Number: ");
+        number = scanner.nextInt();
 
-        for (int i = 1; i <= n; ++i) {
-            System.out.print(firstTerm + ", ");
-            int nextTerm = firstTerm + secondTerm;
-            firstTerm = secondTerm;
-            secondTerm = nextTerm;
+        for (i = 1; i < number; i++) {
+            if (number % i == 0) {
+                sum = sum + i;
+            }
+        }
+        if (sum == number) {
+            System.out.format("Given is a Perfect Number", number);
+        } else {
+            System.out.format("Given is NOT a Perfect Number", number);
         }
     }
 }
